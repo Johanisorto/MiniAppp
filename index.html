@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini App</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <h2>Mi app divertida</h2>
+    <button onclick="generar()">Haz clic</button>
+    <p id="resultado"></p>
+
+    <script>
+        let chistes = [
+            {
+                pregunta: '¿Por qué la computadora fue al médico?',
+                respuesta: 'Porque tenía un virus 🤒💻'
+            },
+            {
+                pregunta: '¿Por qué JavaScript fue a terapia?',
+                respuesta: 'Porque tenía muchos “callbacks” emocionales 😭💻'
+            }
+        ];
+
+        let indice = 0;
+        let mostrandoRespuesta = false;
+
+        function generar() {
+            let resultado = document.getElementById('resultado');
+
+            if (!mostrandoRespuesta) {
+                // Elegir un chiste al azar
+                indice = Math.floor(Math.random() * chistes.length);
+                resultado.innerText = chistes[indice].pregunta;
+                mostrandoRespuesta = true;
+            } else {
+                // Mostrar la respuesta
+                resultado.innerText = chistes[indice].respuesta;
+                mostrandoRespuesta = false;
+            }
+        }
+    </script>
+</body>
+</html>
